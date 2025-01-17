@@ -1,7 +1,7 @@
-import MessageHandler from '../../Handlers/MessageHandler'
-import BaseCommand from '../../lib/BaseCommand'
-import WAClient from '../../lib/WAClient'
-import { ISimplifiedMessage } from '../../typings'
+import MessageHandler from "../../Handlers/MessageHandler";
+import BaseCommand from "../../lib/BaseCommand";
+import WAClient from "../../lib/WAClient";
+import { ISimplifiedMessage } from "../../typings";
 import akaneko from "akaneko";
 import request from "../../lib/request";
 import { MessageType } from "@adiwajshing/baileys";
@@ -10,17 +10,22 @@ import { MessageType } from "@adiwajshing/baileys";
 export default class Command extends BaseCommand {
 	constructor(client: WAClient, handler: MessageHandler) {
 		super(client, handler, {
-			command: "rpaper",
-			description: `Will send you random anime wallpaper.`,
-			aliases: ["wallpaper"],
-			category: "weeb",
-			usage: `${client.config.prefix}rpaper`,
+			command: "masturbation",
+			description: `Do you love to peek a girl masturbating.`,
+			aliases: ["solo"],
+			category: "nsfw",
+			usage: `${client.config.prefix}solo`,
 			baseXp: 50,
 		});
 	}
 
 	run = async (M: ISimplifiedMessage): Promise<void> => {
-		const wall = await akaneko.wallpapers();
+		// fetch result of https://nekos.life/api/v2/img/wallpaper from the API using axios
+		const wall = await akaneko.nsfw.masturbation();
+		if (!(await this.client.getGroupData(M.from)).nsfw)
+			return void M.reply(
+				`Don't be a pervert, Baka! This is not an NSFW group.`
+			);
 		const buffer = await request.buffer(wall).catch((e) => {
 			return void M.reply(e.message);
 		});
@@ -31,7 +36,7 @@ export default class Command extends BaseCommand {
 					MessageType.image,
 					undefined,
 					undefined,
-					`🌟 Here you go.\n`,
+					`*Ahh...*\n`,
 					undefined
 				).catch((e) => {
 					console.log(

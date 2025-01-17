@@ -1,5 +1,5 @@
 <div align="center">
-<a href="https://ibb.co/wQ4GK21"><img src="https://user-images.githubusercontent.com/77143046/141609981-e8707c3a-36c2-4aa5-aadb-dc4e177e733c.jpg" alt="whatsapp-botto-rin-init" border="0"></a>
+<a href="https://ibb.co/wQ4GK21"><img src="https://user-images.githubusercontent.com/77143046/143940049-de5a0b73-0a67-408f-9710-60362feaba75.jpg" alt="whatsapp-botto-rin-init" border="0"></a>
 
 # **RIN : ANIME THEMED WHATSAPP BOT WITH RICH FEATURES**
 
@@ -54,5 +54,5 @@ Button : If you are deploying from a fork
 
 ![Kaoi][![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=PrajjwalDatir&repo=Kaoi&theme=buefy)](https://github.com/PrajjwalDatir/kaoi)
 
-![Chitoge][![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=ShinNouzen&repo=Chitoge&theme=buefy)](https://github.com/ShinNouzen/Chitoge)
+![Chitoge][![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=ShineiIchijo&repo=Chitoge&theme=buefy)](https://github.com/ShinNouzen/Chitoge)
 

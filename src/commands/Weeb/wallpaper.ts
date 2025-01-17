@@ -5,7 +5,6 @@ import WAClient from "../../lib/WAClient";
 import { IParsedArgs, ISimplifiedMessage } from "../../typings";
 import request from "../../lib/request";
 import { MessageType } from "@adiwajshing/baileys";
-
 export default class Command extends BaseCommand {
 	constructor(client: WAClient, handler: MessageHandler) {
 		super(client, handler, {
@@ -22,11 +21,16 @@ export default class Command extends BaseCommand {
 		M: ISimplifiedMessage,
 		{ joined }: IParsedArgs
 	): Promise<void> => {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		if (!joined)
 			return void (await M.reply(`Give me a wallpaper term to search, Baka!`));
 		const chitoge = joined.trim();
 		const wall = new AnimeWallpaper();
-		const wallpaper = await wall.getAnimeWall2(chitoge).catch(() => null);
+		const pages = [1, 2, 3, 4];
+		const random = pages[Math.floor(Math.random() * pages.length)];
+		const wallpaper = await wall
+			.getAnimeWall4({ title: chitoge, type: "sfw", page: random })
+			.catch(() => null);
 		if (!wallpaper)
 			return void (await M.reply(
 				`Couldn't find any matching term of wallpaper.`
@@ -38,11 +42,11 @@ export default class Command extends BaseCommand {
 		while (true) {
 			try {
 				M.reply(
-					buffer || "✖ An error occurred. Please try again later",
+					buffer || "✖ An error occurred. Please try again later.",
 					MessageType.image,
 					undefined,
 					undefined,
-					`🌟 Here you go.`,
+					`*🤍 Here you go.*`,
 					undefined
 				).catch((e) => {
 					console.log(
